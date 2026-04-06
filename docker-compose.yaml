@@ -8,6 +8,11 @@ services:
     container_name: redis
     image: redis:7.0
 
+  mysql:
+    container_name: mysql
+    image: maheshbabu22neeli/mysql:1.0.0
+    build: ./mysql
+
   catalogue:
     container_name: catalogue
     image: maheshbabu22neeli/catalogue:1.0.0
