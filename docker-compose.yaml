@@ -1,0 +1,21 @@
+services:
+  mongodb:
+    container_name: mongodb
+    image: maheshbabu22neeli/mongodb:1.0.0
+    build:
+      dockerfile: mongodb.Dockerfile
+
+  catalogue:
+    container_name: catalogue
+    image: maheshbabu22neeli/catalogue:1.0.0
+    build:
+      dockerfile: catalogue.Dockerfile
+    depends_on:
+    - mongodb
+
+
+networks:
+  default:
+    name: roboshop
+    driver: bridge
+    external: false # we are creating this network manually, so we set this to false
