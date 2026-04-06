@@ -34,6 +34,13 @@ services:
     depends_on:
     - redis
 
+  shipping:
+    container_name: shipping
+    image: maheshbabu22neeli/shipping:1.0.0
+    build: ./shipping
+    depends_on:
+    - mysql
+
   frontend:
     container_name: frontend
     image: maheshbabu22neeli/frontend:1.0.0
