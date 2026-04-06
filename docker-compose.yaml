@@ -13,6 +13,13 @@ services:
     image: maheshbabu22neeli/mysql:1.0.0
     build: ./mysql
 
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3
+    environment:
+      RABBITMQ_DEFAULT_USER: roboshop
+      RABBITMQ_DEFAULT_PASS: roboshop123
+
   catalogue:
     container_name: catalogue
     image: maheshbabu22neeli/catalogue:1.0.0
