@@ -22,3 +22,10 @@ docker network connect roboshop catalogue
 - It can start all the containers at a a time based on dependency.
 - It can stop all the containers at a time based on dependency.
 
+```shell
+docker compose build
+
+docker compose up -d
+
+docker compose up -d --build (to rebuild the application)
+```

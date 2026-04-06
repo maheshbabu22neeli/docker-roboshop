@@ -4,21 +4,28 @@ services:
     image: maheshbabu22neeli/mongodb:1.0.0
     build: ./mongodb
 
+  redis:
+    container_name: redis
+    image: redis:7.0
+
   catalogue:
     container_name: catalogue
     image: maheshbabu22neeli/catalogue:1.0.0
     build: ./catalogue
     depends_on:
-    - mongodb
-
-  redis:
-    container_name: redis
-    image: redis:7.0
+      - mongodb
 
   user:
     container_name: user
     image: maheshbabu22neeli/user:1.0.0
     build: ./user
+    depends_on:
+    - redis
+
+  cart:
+    container_name: cart
+    image: maheshbabu22neeli/cart:1.0.0
+    build: ./cart
     depends_on:
     - redis
 
@@ -31,6 +38,9 @@ services:
     depends_on:
     - catalogue
     - user
+    - cart
+
+
 
 
 networks:
