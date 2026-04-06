@@ -2,14 +2,12 @@ services:
   mongodb:
     container_name: mongodb
     image: maheshbabu22neeli/mongodb:1.0.0
-    build:
-      dockerfile: mongodb.Dockerfile
+    build: ./mongodb
 
   catalogue:
     container_name: catalogue
     image: maheshbabu22neeli/catalogue:1.0.0
-    build:
-      dockerfile: catalogue.Dockerfile
+    build: ./catalogue
     depends_on:
     - mongodb
 
@@ -20,16 +18,14 @@ services:
   user:
     container_name: user
     image: maheshbabu22neeli/user:1.0.0
-    build:
-      dockerfile: user.Dockerfile
+    build: ./user
     depends_on:
     - redis
 
   frontend:
     container_name: frontend
     image: maheshbabu22neeli/frontend:1.0.0
-    build:
-      dockerfile: frontend.Dockerfile
+    build: ./frontend
     ports:
     - "80:80"
     depends_on:
